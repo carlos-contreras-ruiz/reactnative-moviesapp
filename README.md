@@ -22,3 +22,7 @@ npm install react-native-screens react-native-safe-area-context
 npm install --save react-native-snap-carousel
 
 npm install -D @types/react-native-snap-carousel
+
+https://github.com/oblador/react-native-vector-icons
+npm install --save react-native-vector-icons
+npm i --save-dev @types/react-native-vector-icons

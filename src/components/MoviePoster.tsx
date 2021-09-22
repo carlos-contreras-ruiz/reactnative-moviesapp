@@ -1,6 +1,8 @@
 /* eslint-disable react-native/no-inline-styles */
+import {useNavigation} from '@react-navigation/core';
 import React from 'react';
-import {Image, StyleSheet, View} from 'react-native';
+import {Image, StyleSheet} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 import {Movie} from '../models/MovieDBNowPlayingResp';
 
 interface Props {
@@ -10,9 +12,12 @@ interface Props {
 }
 
 export const MoviePoster = ({movie, height = 420, width = 300}: Props) => {
+  const navigation = useNavigation();
   const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
   return (
-    <View
+    <TouchableOpacity
+      onPress={() => navigation.navigate('DetailScreen', movie)}
+      activeOpacity={0.8}
       style={{
         width,
         height,
@@ -25,7 +30,7 @@ export const MoviePoster = ({movie, height = 420, width = 300}: Props) => {
         }}
         style={styles.image}
       />
-    </View>
+    </TouchableOpacity>
   );
 };
 
